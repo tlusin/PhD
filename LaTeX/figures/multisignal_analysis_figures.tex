@@ -1,0 +1,508 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{mathpazo}
+\usepackage[locale=FR]{siunitx} % uporaba vejice namesto pike pri decimalnih številih
+\usepackage{pgfplots}
+\pgfplotsset{
+	table/search path={data/multisignal_analysis},
+}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{dateplot}
+\usepackage{filecontents}
+\usepackage{color}
+\input{colors}
+
+\begin{document}
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e _{1}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_Err_1DFT_MSD.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {AQ_Err_1DFT_MSD.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {AQ_Err_1DFT_MSD.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {AQ_Err_1DFT_MSD.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {AQ_Err_1DFT_MSD.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {AQ_Err_1DFT_MSD.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {AQ_Err_1DFT_MSD.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {AQ_Err_1DFT_MSD.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+		\end{semilogyaxis}
+		\label{fig:AQ_Err_1DFT_MSD}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e _{3}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_Err_3DFT_MSD.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {AQ_Err_3DFT_MSD.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {AQ_Err_3DFT_MSD.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {AQ_Err_3DFT_MSD.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {AQ_Err_3DFT_MSD.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {AQ_Err_3DFT_MSD.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {AQ_Err_3DFT_MSD.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {AQ_Err_3DFT_MSD.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+		\end{semilogyaxis}
+		\label{fig:AQ_Err_3DFT_MSD}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain={1e-11:2},
+			%restrict x to domain={0:8},
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e _{5}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_Err_5DFT_MSD.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {AQ_Err_5DFT_MSD.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {AQ_Err_5DFT_MSD.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {AQ_Err_5DFT_MSD.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {AQ_Err_5DFT_MSD.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {AQ_Err_5DFT_MSD.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {AQ_Err_5DFT_MSD.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {AQ_Err_5DFT_MSD.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+		\end{semilogyaxis}
+		\label{fig:AQ_Err_5DFT_MSD}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e _{1}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_Err_1DFT_MSL.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {AQ_Err_1DFT_MSL.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {AQ_Err_1DFT_MSL.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {AQ_Err_1DFT_MSL.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {AQ_Err_1DFT_MSL.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {AQ_Err_1DFT_MSL.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {AQ_Err_1DFT_MSL.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {AQ_Err_1DFT_MSL.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+			\end{semilogyaxis}
+		\label{fig:AQ_Err_1DFT_MSL}
+	\end{tikzpicture}
+
+	\clearpage
+
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e _{3}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_Err_3DFT_MSL.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {AQ_Err_3DFT_MSL.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {AQ_Err_3DFT_MSL.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {AQ_Err_3DFT_MSL.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {AQ_Err_3DFT_MSL.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {AQ_Err_3DFT_MSL.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {AQ_Err_3DFT_MSL.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {AQ_Err_3DFT_MSL.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+			\end{semilogyaxis}
+		\label{fig:AQ_Err_3DFT_MSL}
+	\end{tikzpicture}
+
+	\clearpage
+
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e _{5}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_Err_5DFT_MSL.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {AQ_Err_5DFT_MSL.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {AQ_Err_5DFT_MSL.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {AQ_Err_5DFT_MSL.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {AQ_Err_5DFT_MSL.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {AQ_Err_5DFT_MSL.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {AQ_Err_5DFT_MSL.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {AQ_Err_5DFT_MSL.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+			\end{semilogyaxis}
+		\label{fig:AQ_Err_5DFT_MSL}
+	\end{tikzpicture}
+	
+	\clearpage
+		
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=north east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_MinErr_1DFT_MSD.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=1] {AQ_MinErr_3DFT_MSD.dat};
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=1] {AQ_MinErr_5DFT_MSD.dat};
+			\legend{$\textnormal{min}\left(\left|e _{_1}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{min}\left(\left|e _{3}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{min}\left(\left|e _{5}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$}
+			\end{semilogyaxis}
+		\label{fig:AQ_MinErr_xDFT_MSD}
+		\end{tikzpicture}
+
+	\clearpage
+
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=8,
+			ymin=0, ymax=8.2,
+			restrict y to domain=0:8.2,
+			restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1, 2, 3, 4, 5, 6, 7, 8},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=${\textnormal{L}}$,
+			legend style={draw=none, legend pos=south east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=2] {AQ_MinErr_1DFT_MSD.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=2] {AQ_MinErr_3DFT_MSD.dat};
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=2] {AQ_MinErr_5DFT_MSD.dat};
+			\legend{$\textnormal{L} @ \textnormal{min}\left(\left|e _{_1}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{L} @ \textnormal{min}\left(\left|e _{_3}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{L} @ \textnormal{min}\left(\left|e _{_5}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$}
+		\end{axis}
+	\label{fig:AQ_MinErr_xDFT_MSD_L}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|e\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}$,
+			legend style={draw=none, legend pos=north east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {AQ_MinErr_1DFT_MSL.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=1] {AQ_MinErr_3DFT_MSL.dat};
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=1] {AQ_MinErr_5DFT_MSL.dat};
+			\legend{$\textnormal{min}\left(\left|e _{_1}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{min}\left(\left|e _{_3}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{min}\left(\left|e _{_5}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$}
+		\end{semilogyaxis}
+	\label{fig:AQ_MinErr_xDFT_MSL}
+	\end{tikzpicture}
+	
+	\clearpage
+		
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=8,
+			ymin=0, ymax=8.2,
+			%restrict y to domain=0:8.2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1, 2, 3, 4, 5, 6, 7, 8},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=${\textnormal{L}}$,
+			legend style={draw=none, legend pos=south east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=2] {AQ_MinErr_1DFT_MSL.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=2] {AQ_MinErr_3DFT_MSL.dat};
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=2] {AQ_MinErr_5DFT_MSL.dat};
+			\legend{$\textnormal{L} @ \textnormal{min}\left(\left|e _{_1}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{L} @ \textnormal{min}\left(\left|e _{_3}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{L} @ \textnormal{min}\left(\left|e _{_5}\left(\frac{A_{m,1}}{A_{m,2}}\right)\right|_{\textnormal{max}}\right)$}
+		\end{axis}
+	\label{fig:AQ_MinErr_xDFT_MSL_L}
+	\end{tikzpicture}
+
+	\clearpage
+
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|E {_1}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}(\SI{}{\degree})$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {PhiDiff_Err_1DFT_MSD.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {PhiDiff_Err_1DFT_MSD.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {PhiDiff_Err_1DFT_MSD.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {PhiDiff_Err_1DFT_MSD.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {PhiDiff_Err_1DFT_MSD.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {PhiDiff_Err_1DFT_MSD.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {PhiDiff_Err_1DFT_MSD.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {PhiDiff_Err_1DFT_MSD.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+			\end{semilogyaxis}
+	\label{fig:PhiDiff_Err_1DFT_MSD}
+	\end{tikzpicture}
+	
+	\clearpage
+		
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|E _{2}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}(\SI{}{\degree})$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {PhiDiff_Err_2DFT_MSD.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {PhiDiff_Err_2DFT_MSD.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {PhiDiff_Err_2DFT_MSD.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {PhiDiff_Err_2DFT_MSD.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {PhiDiff_Err_2DFT_MSD.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {PhiDiff_Err_2DFT_MSD.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {PhiDiff_Err_2DFT_MSD.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {PhiDiff_Err_2DFT_MSD.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+		\end{semilogyaxis}
+	\label{fig:PhiDiff_Err_2DFT_MSD}
+	\end{tikzpicture}
+		
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|E _{1}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}(\SI{}{\degree})$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {PhiDiff_Err_1DFT_MSL.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {PhiDiff_Err_1DFT_MSL.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {PhiDiff_Err_1DFT_MSL.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {PhiDiff_Err_1DFT_MSL.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {PhiDiff_Err_1DFT_MSL.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {PhiDiff_Err_1DFT_MSL.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {PhiDiff_Err_1DFT_MSL.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {PhiDiff_Err_1DFT_MSL.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+		\end{semilogyaxis}
+	\label{fig:PhiDiff_Err_1DFT_MSL}
+	\end{tikzpicture}				
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|E _{2}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}(\SI{}{\degree})$,
+			legend style={draw=none, legend pos=south west, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {PhiDiff_Err_2DFT_MSL.dat}; % L=1
+			\addplot [mark=none, thin, color=Paired12qual2] table [x index=0, y index=2] {PhiDiff_Err_2DFT_MSL.dat}; % L=2
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=3] {PhiDiff_Err_2DFT_MSL.dat}; % L=3
+			\addplot [mark=none, thin, color=Paired12qual4] table [x index=0, y index=4] {PhiDiff_Err_2DFT_MSL.dat}; % L=4
+			\addplot [mark=none, thin, color=Paired12qual5] table [x index=0, y index=5] {PhiDiff_Err_2DFT_MSL.dat}; % L=5
+			\addplot [mark=none, thin, color=Paired12qual6] table [x index=0, y index=6] {PhiDiff_Err_2DFT_MSL.dat}; % L=6
+			\addplot [mark=none, thin, color=Paired12qual7] table [x index=0, y index=7] {PhiDiff_Err_2DFT_MSL.dat}; % L=7
+			\addplot [mark=none, thin, color=Paired12qual8] table [x index=0, y index=8] {PhiDiff_Err_2DFT_MSL.dat}; % L=8
+			\legend{L=1, L=2, L=3, L=4, L=5, L=6, L=7, L=8}
+		\end{semilogyaxis}
+	\label{fig:PhiDiff_Err_2DFT_MSL}
+	\end{tikzpicture}								
+
+	\clearpage
+
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-11:2,
+			%restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|E \left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}(\SI{}{\degree})$,
+			legend style={draw=none, legend pos=north east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {PhiDiff_MinErr_1DFT_MSD.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=1] {PhiDiff_MinErr_2DFT_MSD.dat};
+			\legend{$\textnormal{min}\left(\left|E _{1}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{min}\left(\left|E _{2}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}\right)$}
+		\end{semilogyaxis}
+	\label{fig:PhiDiff_MinErr_xDFT_MSD}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=8,
+			ymin=0, ymax=8.2,
+			restrict y to domain=0:8.2,
+			restrict x to domain=0:8,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1, 2, 3, 4, 5, 6, 7, 8},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=${\textnormal{L}}$,
+			legend style={draw=none, legend pos=south east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=2] {PhiDiff_MinErr_1DFT_MSD.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=2] {PhiDiff_MinErr_2DFT_MSD.dat};
+			\legend{$\textnormal{L} @ \textnormal{min}\left(\left|E _{1}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{L} @ \textnormal{min}\left(\left|E _{2}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}\right)$}
+		\end{axis}
+	\label{fig:PhiDiff_MinErr_xDFT_MSD_L}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{semilogyaxis}[
+			xmin=0, xmax=8,
+			ymin=1e-11, ymax=2,
+			%restrict y to domain=1e-12:1e1,
+			%restrict x to domain=0:8,
+			unbounded coords=discard,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=$\left|E \left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}(\SI{}{\degree})$,
+			legend style={draw=none, legend pos=north east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=1] {PhiDiff_MinErr_1DFT_MSL.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=1] {PhiDiff_MinErr_2DFT_MSL.dat};
+			\legend{$\textnormal{min}\left(\left|E _{1}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}\right)$,
+				$\textnormal{min}\left(\left|E _{2}\left(\varphi_{m,1}-\varphi_{m,2}\right)\right|_{\textnormal{max}}\right)$}
+		\end{semilogyaxis}
+	\label{fig:PhiDiff_MinErr_xDFT_MSL}
+	\end{tikzpicture}
+	
+	\clearpage
+	
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=8,
+			ymin=0, ymax=8.2,
+			restrict y to domain={0:8},
+			restrict x to domain={0:8},
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={1, 2, 3, 4, 5, 6, 7, 8},
+			xmajorgrids=true,
+			ymajorgrids=true, yminorticks=true,
+			every axis/.append style={font=\small},
+			xlabel=$\theta_m$,
+			ylabel=${\textnormal{L}}$,
+			legend style={draw=none, legend pos=south east, font=\tiny} ]
+			\addplot [mark=none, thin, color=Paired12qual1] table [x index=0, y index=2] {PhiDiff_MinErr_1DFT_MSL.dat};
+			\addplot [mark=none, thin, color=Paired12qual3] table [x index=0, y index=2] {PhiDiff_MinErr_2DFT_MSL.dat};
+			\legend{$\textnormal{L} @ \textnormal{min}\left(\left|E\prescript{}{1}{\left(\varphi_{m,1}-\varphi_{m,1}\right)}\right|_{\textnormal{max}}\right)$,
+				$\textnormal{L} @ \textnormal{min}\left(\left|E\prescript{}{2}{\left(\varphi_{m,1}-\varphi_{m,1}\right)}\right|_{\textnormal{max}}\right)$}
+		\end{axis}
+	\label{fig:PhiDiff_MinErr_xDFT_MSL_L}
+	\end{tikzpicture}
+
+
+\end{document}
